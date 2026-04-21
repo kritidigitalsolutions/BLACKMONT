@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-charcoal-950: #0a0a0b;
+  --color-charcoal-900: #0f1115;
+  --color-charcoal-800: #1a1d23;
+
+  --color-gold-400: #f9e076;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8860b;
+  --color-gold-700: #8b6914;
+
+  --background-gold-gradient: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #f9e076 50%,
+    #b8860b 100%
+  );
+  --background-gold-shimmer: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0) 0%,
+    rgba(212, 175, 55, 0.2) 50%,
+    rgba(212, 175, 55, 0) 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0a0a0b;
+  background-image:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 30%),
+    linear-gradient(180deg, #0a0a0b 0%, #0d1015 48%, #0a0a0b 100%);
+  color: white;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.22);
+  color: #ffffff;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes subtleZoom {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background-image: var(--background-gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .border-gold {
+    border-image: var(--background-gold-gradient) 1;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-layered {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03)),
+      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 42%);
+    backdrop-filter: blur(18px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 28px 80px rgba(0, 0, 0, 0.32);
+  }
+
+  .glass-card-layered::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(249, 224, 118, 0.12), transparent);
+    opacity: 0;
+    transform: translateX(-120%);
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+
+  .glass-card-layered:hover::before {
+    opacity: 1;
+    animation: shimmer 1.8s ease;
+  }
+
+  .ambient-glow {
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.5) 0%, rgba(212, 175, 55, 0) 72%);
+  }
+
+  .ambient-glow-white {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 72%);
+  }
+
+  .animate-float-slow {
+    animation: floatSlow 10s ease-in-out infinite;
+  }
+
+  .animate-subtle-zoom {
+    animation: subtleZoom 18s ease-out infinite alternate;
+  }
+
+  .section-shell {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 24%),
+      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.06), transparent 24%);
+    pointer-events: none;
+  }
+
+  .premium-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .gold-glint {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-glint::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 25%, rgba(249, 224, 118, 0.32) 48%, transparent 68%);
+    transform: translateX(-140%);
+    transition: transform 700ms ease;
+    pointer-events: none;
+  }
+
+  .gold-glint:hover::after {
+    transform: translateX(140%);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+
+  .gold-glow-hover:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  }
+}
