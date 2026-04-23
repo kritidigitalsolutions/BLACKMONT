@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Building2, Mail, ShieldCheck } from "lucide-react";
 import PageBackground from "../components/layout/PageBackground";
 
@@ -32,8 +31,6 @@ const Contact = () => {
         </div>
 
         <div className="relative z-10 container mx-auto px-6">
-          <div id="contacts-locations" className="relative -top-28" aria-hidden="true" />
-
           <div className="mx-auto grid max-w-6xl grid-cols-1 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_30px_80px_rgba(0,0,0,0.35)] lg:grid-cols-[1.05fr_0.95fr]">
             <div className="border-b border-white/10 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-14">
               <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.34em] text-gold-400">
@@ -176,13 +173,13 @@ const Contact = () => {
                 <div className="mt-6 flex items-start gap-3 text-sm text-white/55">
                   <ShieldCheck className="mt-0.5 h-4 w-4 text-gold-400" />
                   <p>
-                    Prefer direct communication?{" "}
-                    <Link
-                      to="/about/contacts-locations"
+                    Prefer direct communication? Reach us directly at{" "}
+                    <a
+                      href="mailto:hello@blackmontcapital.com"
                       className="text-gold-400 transition hover:text-gold-300"
                     >
-                      Contact Blackmont
-                    </Link>
+                      hello@blackmontcapital.com
+                    </a>
                   </p>
                 </div>
               </div>

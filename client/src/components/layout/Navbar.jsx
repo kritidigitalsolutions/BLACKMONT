@@ -10,13 +10,11 @@ const navItems = [
       "/about-blackmont",
       "/about/mission-vision",
       "/about/leadership",
-      "/about/contacts-locations",
     ],
     children: [
       { label: "About Blackmont", to: "/about-blackmont" },
       { label: "Mission & Vision", to: "/about/mission-vision" },
       { label: "Leadership", to: "/about/leadership" },
-      { label: "Contacts & Locations", to: "/about/contacts-locations" },
     ],
   },
   { label: "Services", to: "/services" },

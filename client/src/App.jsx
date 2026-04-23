@@ -11,7 +11,6 @@ import Privacy from "./pages/Privacy";
 import ScrollToTop from "./components/ScrollToTop";
 import MissionVision from "./pages/MissionVision";
 import Leadership from "./pages/Leadership";
-import ContactLocations from "./pages/ContactLocations";
 import InvestorOverview from "./pages/InvestorOverview";
 import StockInformation from "./pages/StockInformation";
 import EventsPresentations from "./pages/EventsPresentations";
@@ -39,10 +38,6 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/about/mission-vision" element={<MissionVision />} />
             <Route path="/about/leadership" element={<Leadership />} />
-            <Route
-              path="/about/contacts-locations"
-              element={<ContactLocations />}
-            />
             <Route path="/about-blackmont" element={<AboutBlackmont />} />
             <Route
               path="/mission-vision"
@@ -51,10 +46,6 @@ function App() {
             <Route
               path="/leadership"
               element={<Navigate to="/about/leadership" replace />}
-            />
-            <Route
-              path="/contacts-locations"
-              element={<Navigate to="/about/contacts-locations" replace />}
             />
             <Route
               path="/investor-relations"
