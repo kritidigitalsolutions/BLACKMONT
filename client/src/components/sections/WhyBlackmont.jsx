@@ -39,13 +39,14 @@ const WhyBlackmont = () => {
               transition={{ duration: 1, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="glass-card-layered group relative z-10 rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-gold-500/26"
             >
-              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-charcoal-950 text-xl text-gold-500 shadow-inner transition-all duration-500 group-hover:border-gold-500/50 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+              <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/8 bg-charcoal-950/92 text-xl text-gold-500/72 shadow-inner transition-all duration-500 group-hover:border-gold-500/36 group-hover:text-gold-400/82 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.12)]">
                 0{index + 1}
               </div>
-              <h3 className="text-2xl font-serif tracking-wide text-white transition-colors group-hover:text-gold-400">
+              <div className="mb-5 h-px w-14 bg-gradient-to-r from-gold-500/75 to-gold-500/10 transition-all duration-500 group-hover:w-18 group-hover:from-gold-400/85" />
+              <h3 className="text-2xl font-serif font-medium tracking-[0.01em] text-white transition-colors group-hover:text-gold-400">
                 {feature.title}
               </h3>
-              <p className="mt-5 text-base leading-8 text-white/62">{feature.text}</p>
+              <p className="mt-4 text-base leading-8 text-white/70">{feature.text}</p>
             </motion.div>
           ))}
         </div>

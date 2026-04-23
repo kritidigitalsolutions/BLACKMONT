@@ -1,5 +1,7 @@
 import { useState } from "react";
+import PageBackground from "../components/layout/PageBackground";
 import PageHeader from "../components/sections/PageHeader";
+import bgvideo from "../assets/videos/backgroundvideo1.mp4";
 
 const faqs = [
   {
@@ -54,30 +56,32 @@ function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="bg-charcoal-950 text-white">
-      <PageHeader
-        eyebrow="Client Information"
-        title="Frequently Asked Questions"
-        description="Answers to common questions regarding Blackmont Capital's philosophy, platform, and approach to physical gold stewardship."
-        highlights={["Client onboarding clarity", "Ownership-first framework", "Institutional process"]}
-      />
+    <PageBackground>
+      <div className="min-h-screen text-white">
+        <PageHeader
+          eyebrow="Client Information"
+          title="Frequently Asked Questions"
+          description="Answers to common questions regarding Blackmont Capital's philosophy, platform, and approach to physical gold stewardship."
+          backgroundVideo={bgvideo}
+          highlights={["Client onboarding clarity", "Ownership-first framework", "Institutional process"]}
+        />
 
-      <section className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
-        <div className="mb-10">
-          <p className="text-[10px] uppercase tracking-[0.36em] text-gold-400/80">
-            FAQ
-          </p>
-          <h2 className="mt-4 font-serif text-[2.4rem] leading-[1.04] tracking-[-0.03em] text-white md:text-[3.2rem]">
-            Clear answers for prospective clients
-          </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-white/70 md:text-lg">
-            This section provides a concise overview of Blackmont's operating
-            philosophy, client positioning, custody orientation, and strategic
-            outlook.
-          </p>
-        </div>
+        <section className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
+          <div className="mb-10">
+            <p className="text-[10px] uppercase tracking-[0.36em] text-gold-400/80">
+              FAQ
+            </p>
+            <h2 className="mt-4 font-serif text-[2.4rem] leading-[1.04] tracking-[-0.03em] text-white md:text-[3.2rem]">
+              Clear answers for prospective clients
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-white/70 md:text-lg">
+              This section provides a concise overview of Blackmont's operating
+              philosophy, client positioning, custody orientation, and strategic
+              outlook.
+            </p>
+          </div>
 
-        <div className="mx-auto max-w-4xl space-y-4">
+          <div className="mx-auto max-w-4xl space-y-4">
             {faqs.map((item, index) => (
               <FaqItem
                 key={index}
@@ -86,9 +90,10 @@ function Faq() {
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               />
             ))}
-        </div>
-      </section>
-    </div>
+          </div>
+        </section>
+      </div>
+    </PageBackground>
   );
 }
 

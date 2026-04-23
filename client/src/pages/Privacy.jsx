@@ -1,4 +1,6 @@
+import PageBackground from "../components/layout/PageBackground";
 import PageHeader from "../components/sections/PageHeader";
+import bgvideo from "../assets/videos/backgroundvideo1.mp4";
 
 const privacySections = [
   {
@@ -40,31 +42,34 @@ const privacySections = [
 
 function Privacy() {
   return (
-    <div className="bg-charcoal-950 text-white">
-      <PageHeader
-        eyebrow="Legal"
-        title="Privacy Policy"
-        description="This policy outlines how Blackmont Capital approaches personal information submitted through this website."
-      />
+    <PageBackground>
+      <div className="min-h-screen text-white">
+        <PageHeader
+          eyebrow="Legal"
+          title="Privacy Policy"
+          description="This policy outlines how Blackmont Capital approaches personal information submitted through this website."
+          backgroundVideo={bgvideo}
+        />
 
-      <section className="mx-auto max-w-5xl px-6 py-16 md:px-10 lg:px-12">
-        <div className="space-y-6">
-          {privacySections.map((section, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8"
-            >
-              <h2 className="font-serif text-2xl text-gold-400 md:text-3xl">
-                {section.title}
-              </h2>
-              <p className="mt-4 text-base leading-8 text-white/75">
-                {section.content}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+        <section className="mx-auto max-w-5xl px-6 py-16 md:px-10 lg:px-12">
+          <div className="space-y-6">
+            {privacySections.map((section, index) => (
+              <div
+                key={index}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8"
+              >
+                <h2 className="font-serif text-2xl text-gold-400 md:text-3xl">
+                  {section.title}
+                </h2>
+                <p className="mt-4 text-base leading-8 text-white/75">
+                  {section.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </PageBackground>
   );
 }
 

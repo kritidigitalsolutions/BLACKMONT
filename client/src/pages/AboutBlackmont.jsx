@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import PageBackground from "../components/layout/PageBackground";
 import PageHeader from "../components/sections/PageHeader";
+import bgvideo from "../assets/videos/backgroundvideo1.mp4";
 
 const principles = [
   {
@@ -21,7 +22,7 @@ const principles = [
   },
 ];
 
-const About = () => {
+const AboutBlackmont = () => {
   return (
     <PageBackground>
       <div className="min-h-screen text-white">
@@ -29,6 +30,7 @@ const About = () => {
           eyebrow="ABOUT BLACKMONT"
           title="A Modern Precious Metals Enterprise"
           description="Blackmont Capital stands as a beacon in the global bullion market, offering professional stewardship, secure custody, and strategic utilisation of physical gold assets."
+          backgroundVideo={bgvideo}
         />
 
         <section className="section-shell px-6 py-24 md:py-32">
@@ -62,4 +64,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutBlackmont;

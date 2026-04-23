@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import PageHeader from "../components/sections/PageHeader";
+import { serviceIcons } from "../components/sections/serviceIcons";
 import { siteContent } from "../data/siteContent";
+import bgvideo from "../assets/videos/backgroundvideo1.mp4";
 
 const Services = () => {
   const services = siteContent.services;
@@ -8,10 +10,10 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-charcoal-950">
       <PageHeader
-        eyebrow="Capabilities"
+        eyebrow="CAPABILITIES"
         title="Bespoke Structuring"
         description="We engineer physical gold assets into high-utility financial instruments without diluting sovereign ownership."
-        highlights={["Trading access", "Audited custody", "Liquidity design"]}
+        backgroundVideo={bgvideo}
       />
 
       <section className="section-shell px-6 py-24 md:py-32">
@@ -32,7 +34,10 @@ const Services = () => {
 
                 <div className="relative z-10 flex h-full flex-col">
                   <div className="mb-10">
-                    <span className="inline-flex rounded-full border border-gold-500/20 bg-gold-500/10 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-gold-300">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/20 bg-gold-500/10 px-3.5 py-1.5 text-[10px] uppercase tracking-[0.28em] text-gold-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-gold-500/18 bg-charcoal-950/65 text-gold-400">
+                        {serviceIcons[item.tag]}
+                      </span>
                       {item.tag}
                     </span>
                     <h3 className="mt-6 font-serif text-3xl text-white transition-colors group-hover:text-gold-400">

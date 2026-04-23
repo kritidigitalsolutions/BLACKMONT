@@ -1,40 +1,38 @@
 import { motion } from "motion/react";
 import PageBackground from "../components/layout/PageBackground";
 import PageHeader from "../components/sections/PageHeader";
+import bgvideo from "../assets/videos/backgroundvideo1.mp4";
 
-const principles = [
+const leadershipFramework = [
   {
-    title: "Asset Integrity",
-    text: "Maintaining the authenticity, traceability, and proper documentation of physical bullion assets through rigorous verification processes.",
+    title: "Executive Leadership",
+    text: "Blackmont’s operating direction is shaped by disciplined decision-making, execution oversight, and a long-term view of precious metals stewardship.",
   },
   {
-    title: "Client Ownership",
-    text: "Ensuring that clients retain clear ownership and recognition of their underlying gold holdings at all times.",
+    title: "Governance Oversight",
+    text: "Internal controls, documentation standards, and accountability frameworks support a professional environment for client asset stewardship.",
   },
   {
-    title: "Professional Governance",
-    text: "Operating through disciplined procedures, transparent structures, and responsible asset stewardship practices.",
-  },
-  {
-    title: "Strategic Utilisation",
-    text: "Supporting clients in managing physical gold in a manner that enhances its practical role within broader asset holdings.",
+    title: "Advisory Perspective",
+    text: "Strategic judgment is informed by experience across finance, logistics, and capital structures connected to physical asset management.",
   },
 ];
 
-const About = () => {
+const Leadership = () => {
   return (
     <PageBackground>
       <div className="min-h-screen text-white">
         <PageHeader
-          eyebrow="ABOUT BLACKMONT"
-          title="A Modern Precious Metals Enterprise"
-          description="Blackmont Capital stands as a beacon in the global bullion market, offering professional stewardship, secure custody, and strategic utilisation of physical gold assets."
+          eyebrow="LEADERSHIP"
+          title="Institutional Perspective, Professional Discipline"
+          description="Blackmont operates with a governance-led mindset shaped by experience across finance, logistics, and stewardship-oriented capital structures."
+          backgroundVideo={bgvideo}
         />
 
         <section className="section-shell px-6 py-24 md:py-32">
           <div className="container mx-auto">
-            <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-              {principles.map((item, index) => (
+            <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+              {leadershipFramework.map((item, index) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 24 }}
@@ -44,7 +42,7 @@ const About = () => {
                   className="glass-card-layered rounded-[1.9rem] p-7 md:p-8"
                 >
                   <p className="text-[10px] uppercase tracking-[0.32em] text-gold-400/80">
-                    Principle 0{index + 1}
+                    Framework 0{index + 1}
                   </p>
                   <h2 className="mt-4 font-serif text-2xl text-white">
                     {item.title}
@@ -62,4 +60,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Leadership;

@@ -22,14 +22,14 @@ const faqs = [
 function FaqPreview() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 lg:px-12">
-      <div className="max-w-3xl">
+      <div className="mx-auto flex max-w-3xl flex-col items-center space-y-4 text-center">
         <p className="text-[10px] uppercase tracking-[0.36em] text-gold-400/80">
           Common Questions
         </p>
-        <h2 className="mt-4 font-serif text-[2.4rem] leading-[1.04] tracking-[-0.03em] text-white md:text-[3.2rem]">
+        <h2 className="font-serif text-[2.4rem] leading-[1.04] tracking-[-0.03em] text-white md:text-[3.2rem]">
           Frequently asked questions
         </h2>
-        <p className="mt-4 text-base leading-8 text-white/68">
+        <p className="text-base leading-8 text-white/68">
           A brief introduction to some of the most common questions prospective
           clients may have regarding Blackmont's philosophy and platform.
         </p>

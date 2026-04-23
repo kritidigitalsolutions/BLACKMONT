@@ -1,70 +1,71 @@
 import { motion } from "motion/react";
 
-const PageHeader = ({ eyebrow, title, description, highlights = [] }) => {
+const PageHeader = ({ eyebrow, title, description, backgroundVideo }) => {
   return (
-    <section className="section-shell premium-grid relative overflow-hidden bg-charcoal-950 pt-32 pb-20 md:pt-36 md:pb-24">
-      <div className="pointer-events-none absolute top-0 left-1/2 h-[26rem] w-[46rem] -translate-x-1/2 ambient-glow opacity-20 blur-[120px]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-charcoal-950/50" />
-      <div className="container relative z-10 mx-auto px-6">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.65fr)] lg:items-end">
-          <div>
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="mb-5 text-[10px] uppercase tracking-[0.38em] text-gold-400/85"
+    <section className="section-shell relative min-h-[70vh] overflow-hidden px-6 py-20">
+      <div className="absolute inset-0 z-0">
+        {backgroundVideo ? (
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="h-full w-full object-cover object-center scale-[1.03] opacity-[0.94] md:scale-[1.05]"
             >
-              {eyebrow}
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 26 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="max-w-4xl text-[2.9rem] leading-[0.98] tracking-[-0.03em] text-white sm:text-[3.7rem] md:text-[4.7rem] lg:text-[5.4rem]"
-            >
-              {title}
-            </motion.h1>
-
-            {description && (
-              <motion.p
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg md:leading-9"
-              >
-                {description}
-              </motion.p>
-            )}
+              <source src={backgroundVideo} type="video/mp4" />
+            </video>
           </div>
+        ) : (
+          <>
+            <div className="pointer-events-none absolute top-0 left-1/2 h-[26rem] w-[46rem] -translate-x-1/2 ambient-glow opacity-20 blur-[120px]" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-charcoal-950/45" />
+          </>
+        )}
 
-          <motion.div
+        {backgroundVideo && (
+          <>
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_76%_24%,rgba(249,224,118,0.22),transparent_32%)]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-charcoal-950/24 via-charcoal-950/18 to-charcoal-950/68" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-charcoal-950/62 via-charcoal-950/34 to-charcoal-950/22" />
+
+            <div className="pointer-events-none absolute top-[10%] left-[12%] z-20 h-[28vw] w-[28vw] rounded-full ambient-glow opacity-16 blur-[120px]" />
+            <div className="pointer-events-none absolute right-[8%] bottom-[12%] z-20 h-[22vw] w-[22vw] rounded-full ambient-glow-white opacity-[0.08] blur-[140px]" />
+          </>
+        )}
+      </div>
+
+      <div className="container relative z-30 mx-auto flex min-h-[70vh] items-center justify-center">
+        <div className="max-w-4xl text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-4 text-sm tracking-[0.28em] text-gold-400"
+          >
+            {eyebrow}
+          </motion.p>
+
+          <motion.h1
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.18 }}
-            className="glass-card-layered rounded-[2rem] p-6 md:p-7"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-6 font-serif text-5xl leading-tight text-white md:text-6xl"
           >
-            <p className="text-[10px] uppercase tracking-[0.34em] text-gold-400/80">
-              Section Focus
-            </p>
-            <div className="mt-5 space-y-4">
-              {(highlights.length
-                ? highlights
-                : [
-                    "Institutional clarity",
-                    "Refined operating model",
-                    "Premium client experience",
-                  ]).map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3"
-                >
-                  <span className="h-2 w-2 rounded-full bg-gold-500" />
-                  <span className="text-sm text-white/78">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+            {title}
+          </motion.h1>
+
+          {description && (
+            <motion.p
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mx-auto max-w-3xl text-lg leading-relaxed text-white/80"
+            >
+              {description}
+            </motion.p>
+          )}
         </div>
       </div>
     </section>

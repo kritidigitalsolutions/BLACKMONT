@@ -1,91 +1,119 @@
-import { motion } from "motion/react";
-import { Link } from "react-router-dom";
-import { siteContent } from "../../data/siteContent";
+import { useEffect, useState } from "react";
+import goldimg1 from "../../assets/images/goldimage.jpg";
+import goldimg2 from "../../assets/images/goldimage2.jpg";
+import goldimg3 from "../../assets/images/goldimage3.jpg";
 
 const HomeAboutPreview = () => {
-  const { title, paragraphs, highlights, stats } = siteContent.about;
+  const slides = [
+    {
+      src: goldimg1,
+      alt: "Refined gold bars in dramatic low light",
+    },
+    {
+      src: goldimg2,
+      alt: "Premium bullion arrangement with warm metallic contrast",
+    },
+    {
+      src: goldimg3,
+      alt: "Blackmont gold presentation with dark luxury atmosphere",
+    },
+  ];
+  const principles = [
+    {
+      title: "Asset Integrity",
+      text: "Maintaining the authenticity, traceability, and proper documentation of physical bullion assets through rigorous verification processes.",
+    },
+    {
+      title: "Client Ownership",
+      text: "Ensuring that clients retain clear ownership and recognition of their underlying gold holdings at all times.",
+    },
+    {
+      title: "Professional Governance",
+      text: "Operating through disciplined procedures, transparent structures, and responsible asset stewardship practices.",
+    },
+    {
+      title: "Strategic Utilisation",
+      text: "Supporting clients in managing physical gold in a manner that enhances its practical role within broader asset holdings.",
+    },
+  ];
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [slides.length]);
 
   return (
     <section className="section-shell bg-charcoal-950 px-6 py-28 md:py-36">
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full ambient-glow opacity-20 blur-[140px]" />
 
       <div className="container relative z-10 mx-auto">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="mb-6 text-[10px] uppercase tracking-[0.38em] text-gold-400/85">
-              Our Identity
-            </p>
-            <h2 className="max-w-2xl text-[2.45rem] leading-[1.02] tracking-[-0.03em] text-white sm:text-[3rem] md:text-[3.8rem] lg:text-[4.7rem]">
-              {title}
-            </h2>
+        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] lg:gap-10">
+          <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.38)] sm:min-h-[460px] lg:min-h-[620px]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_40%),linear-gradient(180deg,rgba(6,6,6,0.08),rgba(6,6,6,0.42))]" />
 
-            <div className="mt-8 max-w-xl space-y-5">
-              {paragraphs.map((p, index) => (
-                <p key={index} className="text-base leading-8 text-white/68 md:text-lg md:leading-9">
-                  {p}
-                </p>
+            {slides.map((slide, index) => (
+              <img
+                key={slide.alt}
+                src={slide.src}
+                alt={slide.alt}
+                className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-out ${
+                  index === activeSlide ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"
+                }`}
+              />
+            ))}
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/55 to-transparent" />
+
+            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 backdrop-blur-md">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.alt}
+                  type="button"
+                  aria-label={`Show slide ${index + 1}`}
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeSlide ? "w-7 bg-gold-400" : "w-2.5 bg-white/35 hover:bg-white/55"
+                  }`}
+                />
               ))}
             </div>
+          </div>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {stats.map((item) => (
-                <div key={item.label} className="glass-card-layered rounded-[1.5rem] px-5 py-5">
-                  <p className="text-xl text-gold-400">{item.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-white/58">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6"
-          >
-            <div className="glass-card-layered rounded-[2rem] p-7 md:p-8">
-              <div className="mb-6 flex items-center justify-between">
+          <div className="glass-card-layered flex h-full rounded-[2rem] p-7 md:p-8 lg:min-h-[620px]">
+            <div className="flex w-full flex-col">
+              <div className="max-w-xl">
                 <p className="text-[10px] uppercase tracking-[0.34em] text-gold-400/80">
-                  Stewardship Pillars
+                  About Blackmont
                 </p>
-                <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white/48">
-                  Blackmont
-                </span>
+                <p className="mt-4 text-sm leading-7 text-white/62 md:text-[0.98rem]">
+                  A modern precious metals enterprise built on disciplined stewardship, institutional clarity, and long-term client alignment.
+                </p>
               </div>
-              <div className="space-y-4">
-                {highlights.map((item, index) => (
+
+              <div className="mt-8 grid flex-1 gap-4 sm:grid-cols-2">
+                {principles.map((item, index) => (
                   <div
                     key={item.title}
-                    className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5 transition duration-300 hover:-translate-y-1 hover:border-gold-500/20"
+                    className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5 transition duration-300 hover:border-gold-500/20 hover:bg-white/[0.045]"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold-500/25 text-xs text-gold-400">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold-500/25 text-xs text-gold-400">
                         0{index + 1}
                       </span>
-                      <h3 className="font-serif text-xl text-white">{item.title}</h3>
+                      <div>
+                        <h4 className="font-serif text-xl text-white">{item.title}</h4>
+                        <p className="mt-3 text-sm leading-7 text-white/66">{item.text}</p>
+                      </div>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-white/66">{item.text}</p>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="pt-2">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.24em] text-gold-400 transition hover:text-gold-300"
-              >
-                Discover Our Heritage
-                <span className="h-px w-12 bg-gold-500/70" />
-              </Link>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

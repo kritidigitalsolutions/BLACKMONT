@@ -4,7 +4,6 @@ import HomeServicesPreview from "../components/sections/HomeServicesPreview";
 import HomeMarketPreview from "../components/sections/HomeMarketPreview";
 import WhyBlackmont from "../components/sections/WhyBlackmont";
 import ContactCTA from "../components/sections/ContactCTA";
-import FaqPreview from "../components/sections/FaqPreview";
 import InsightsPreview from "../components/sections/InsightsPreview";
 
 const Home = () => {
@@ -17,7 +16,6 @@ const Home = () => {
       <HomeMarketPreview />
       <ContactCTA />
       <InsightsPreview />
-<FaqPreview />
     </>
   );
 };

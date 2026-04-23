@@ -9,9 +9,9 @@ export const siteContent = {
 
   hero: {
     eyebrow: "BEYOND BULLION",
-    title: "Institutional Wealth &\nPrecious Metals Stewardship",
+    title: "Beyond Traditional Bullion Ownership",
     description:
-      "Blackmont Capital provides sophisticated investors with secure physical gold trading, premier bullion custody, and strategic asset utilisation strategies.",
+      "A modern precious metals enterprise built on disciplined stewardship, institutional clarity, and long-term client alignment.",
     primaryButton: "EXPLORE SERVICES",
     secondaryButton: "PRIVATE ADVISORY",
     metrics: [
@@ -62,31 +62,31 @@ export const siteContent = {
     {
       title: "Physical Gold Trading",
       description:
-        "Direct access to global bullion liquidity with institutional-grade pricing and seamless settlement across major financial hubs.",
+        "Direct access to global bullion markets with institutional-grade pricing and seamless execution across major financial hubs.",
       detail:
         "Structured sourcing, verifiable supply chain, execution precision.",
-      tag: "Execution",
+      tag: "Trading",
     },
     {
       title: "Secure Bullion Custody",
       description:
-        "Tier-1 vaulting solutions with full insurance, periodic third-party audits, and absolute geographical diversification options.",
+        "Tier-1 vaulting solutions with full insurance, periodic third-party audits, and geographically diversified storage.",
       detail:
         "Segregated accounts, non-bank infrastructure, Swiss-grade security.",
-      tag: "Protection",
+      tag: "Custody",
     },
     {
       title: "Gold Asset Utilisation",
       description:
-        "Unlocking the intrinsic value of physical holdings through innovative structuring for liquidity and yield optimization.",
+        "Structured solutions designed to unlock liquidity and enhance the strategic role of physical gold holdings.",
       detail:
         "Lombard lending, yield generation, bespoke collateralization.",
-      tag: "Liquidity",
+      tag: "Utilisation",
     },
     {
       title: "Strategic Advisory",
       description:
-        "Custom precious metals allocation strategies designed for family offices, high-net-worth individuals, and institutional portfolios.",
+        "Custom allocation and structuring strategies designed for institutions, family offices, and high-net-worth clients.",
       detail:
         "Portfolio integration, jurisdictional structuring, macroeconomic alignment.",
       tag: "Advisory",
@@ -96,7 +96,7 @@ export const siteContent = {
   whyBlackmont: {
     title: "Uncompromising Institutional Integrity",
     subtitle:
-      "A legacy built on trust, governance, and meticulous execution for discerning capital partners.",
+      "Built on trust, governance, and disciplined execution for long-term capital partners.",
     features: [
       {
         title: "Absolute Ownership Clarity",
@@ -160,23 +160,6 @@ export const siteContent = {
     featuredGraphTitle: "Global Central Bank Gold Reserves",
     featuredGraphDescription:
       "Net purchases showing unprecedented sustained accumulation across major economies.",
-    articles: [
-      {
-        category: "Macro Strategy",
-        date: "Oct 2024",
-        title: "The Return to Hard Assets in an Inflationary Decade",
-      },
-      {
-        category: "Market Flow",
-        date: "Sep 2024",
-        title: "Analyzing Eastern Institutional Bullion Drawdowns",
-      },
-      {
-        category: "Custody",
-        date: "Aug 2024",
-        title: "Geopolitical De-risking and Non-Bank Custody Migration",
-      },
-    ],
     themes: [
       "Macroeconomic shifts",
       "Central bank reserve behavior",
